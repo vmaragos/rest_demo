@@ -8,4 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class Vessel extends Model
 {
     use HasFactory;
+
+    public function opexes()
+    {
+        return $this->hasMany(VesselOpex::class);
+    }
+
 }
