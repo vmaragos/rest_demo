@@ -20,8 +20,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-// Route::get('/vessels', [VesselController::class, 'index']);
-
 Route::post('/voyages', [VoyagesAPIController::class, 'store']);
 
 Route::put('/voyages/{voyage}', [VoyagesAPIController::class, 'update']);

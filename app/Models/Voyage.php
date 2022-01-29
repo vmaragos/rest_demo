@@ -15,6 +15,6 @@ class Voyage extends Model
 
     public function vessel()
     {
-        return $this->belongsTo(Voyage::class);
+        return $this->belongsTo(Vessel::class);
     }
 }
