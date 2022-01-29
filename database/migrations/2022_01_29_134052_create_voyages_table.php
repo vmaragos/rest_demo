@@ -16,8 +16,8 @@ class CreateVoyagesTable extends Migration
         Schema::create('voyages', function (Blueprint $table) {
             $table->id();
             $table->foreignId('vessel_id')->constrained()->cascadeOnDelete();
-            $table->string('code')->unique();
-            $table->dateTime('start')->nullable();
+            $table->string('code')->unique()->nullable();
+            $table->dateTime('start');
             $table->dateTime('end')->nullable();
             $table->string('status')->default('pending');
             $table->decimal('revenues', 8, 2)->nullable();
