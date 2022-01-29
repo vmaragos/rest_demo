@@ -23,3 +23,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::post('/voyages', [VoyagesAPIController::class, 'store']);
 
 Route::put('/voyages/{voyage}', [VoyagesAPIController::class, 'update']);
+
+Route::post('/vessels/{vessel}/vessel-opex', [VesselsAPIController::class, 'store']);
