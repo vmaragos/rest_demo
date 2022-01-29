@@ -15,6 +15,9 @@ class CreateVesselOpexTable extends Migration
     {
         Schema::create('vessel_opex', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('vessel_id')->constrained()->cascadeOnDelete();
+            $table->date('date');
+            $table->decimal('expenses', 8, 2);
             $table->timestamps();
         });
     }
