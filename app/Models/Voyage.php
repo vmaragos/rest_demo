@@ -9,6 +9,10 @@ class Voyage extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'vessel_id', 'code', 'start', 'end', 'status', 'revenues', 'expenses', 'profit'
+    ];
+
     public function vessel()
     {
         return $this->belongsTo(Voyage::class);

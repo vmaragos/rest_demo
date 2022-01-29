@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\VesselController;
+use App\Http\Controllers\VoyagesAPIController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -17,3 +19,9 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+// Route::get('/vessels', [VesselController::class, 'index']);
+
+Route::post('/voyages', [VoyagesAPIController::class, 'store']);
+
+Route::put('/voyages/{voyage}', [VoyagesAPIController::class, 'update']);
