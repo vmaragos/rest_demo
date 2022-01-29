@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\VesselController;
+use App\Http\Controllers\VesselOpexesAPIController;
 use App\Http\Controllers\VesselsAPIController;
 use App\Http\Controllers\VoyagesAPIController;
 use Illuminate\Http\Request;
@@ -25,4 +26,4 @@ Route::post('/voyages', [VoyagesAPIController::class, 'store']);
 
 Route::put('/voyages/{voyage}', [VoyagesAPIController::class, 'update']);
 
-Route::post('/vessels/{vessel}/vessel-opex', [VesselsAPIController::class, 'store']);
+Route::post('/vessels/{vessel}/vessel-opex', [VesselOpexesAPIController::class, 'store']);
