@@ -4,11 +4,17 @@ namespace App\Http\Controllers;
 
 use App\Models\Vessel;
 use App\Models\Voyage;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 
 class VoyagesAPIController extends Controller
 {
+    public function index()
+    {
+        return Voyage::all();
+    }
+    
     public function store()
     {
         request()->validate([
@@ -36,8 +42,8 @@ class VoyagesAPIController extends Controller
 
             'vessel_id' => request('vessel_id'),
             'code' => $voyage_code,
-            'start' => request('start'),
-            'end' => request('end'),
+            'start' => Carbon::parse(request('start'))->format('Y-m-d H:i'),
+            'end' => Carbon::parse(request('end'))->format('Y-m-d H:i'),
             // 'status' => 'pending',
             'revenues' => request('revenues'),
             'expenses' => request('expenses'),
@@ -98,8 +104,8 @@ class VoyagesAPIController extends Controller
         }
 
         $voyage->update([
-            'start'  => request('start'),
-            'end'  => request('end'),
+            'start' => Carbon::parse(request('start'))->format('Y-m-d H:i'),
+            'end' => Carbon::parse(request('end'))->format('Y-m-d H:i'),
             'code' => $vessel_name . '-' . request('start'), // start & end change, so the code should change too
             'status' => request('status'),
             'revenues' => request('revenues'),
