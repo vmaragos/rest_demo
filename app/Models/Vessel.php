@@ -14,4 +14,8 @@ class Vessel extends Model
         return $this->hasMany(VesselOpex::class);
     }
 
+    public function voyages()
+    {
+        return $this->hasMany(Voyage::class);
+    }
 }
